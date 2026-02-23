@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadar.Digital — Packages & Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A2342;--navy2:#0F3060;
+  --teal:#00C2A8;--teal-lt:#E6FAF8;
+  --gold:#F5A623;--gold-lt:#FEF9EE;
+  --off:#F7F9FC;--border:rgba(10,35,66,.09);
+  --text:#1A202C;--muted:#718096;
+  --card-shadow:0 2px 16px rgba(10,35,66,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--text)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:2px solid var(--teal);padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Playfair Display',serif;font-size:19px;color:#fff}
+.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-link{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-link:hover{color:#fff}
+.nav-cta{padding:8px 18px;background:var(--teal);color:var(--navy);border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:filter .2s}
+.nav-cta:hover{filter:brightness(1.08)}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:80px 40px 90px;text-align:center;position:relative;overflow:hidden}
+.hero-g1{position:absolute;right:-60px;top:-60px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,168,.1),transparent 70%)}
+.hero-g2{position:absolute;left:-40px;bottom:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.07),transparent 70%)}
+.hero-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--teal);text-transform:uppercase;margin-bottom:18px;position:relative;z-index:2}
+.hero-h1{font-family:'Playfair Display',serif;font-size:52px;color:#fff;line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px;position:relative;z-index:2}
+.hero-h1 em{color:var(--teal);font-style:normal}
+.hero-div{width:56px;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px;margin:0 auto 22px;position:relative;z-index:2}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;max-width:560px;margin:0 auto 40px;position:relative;z-index:2}
+.hero-platform{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.platform-pill{padding:6px 16px;border:1px solid rgba(0,194,168,.3);border-radius:20px;font-size:12px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.6);letter-spacing:.5px}
+.platform-pill.t{background:rgba(0,194,168,.12);border-color:rgba(0,194,168,.4);color:var(--teal)}
+
+/* ── TOGGLE ── */
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;padding:28px 0 0;position:relative;z-index:2}
+.toggle-lbl{font-size:13px;font-weight:600;color:rgba(255,255,255,.5)}
+.toggle-lbl.active{color:#fff}
+.toggle-track{width:48px;height:26px;background:rgba(255,255,255,.15);border-radius:13px;cursor:pointer;position:relative;transition:background .2s;border:1px solid rgba(255,255,255,.2)}
+.toggle-thumb{width:20px;height:20px;background:#fff;border-radius:50%;position:absolute;top:2px;left:3px;transition:left .2s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.toggle-track.annual .toggle-thumb{left:23px;background:var(--teal)}
+.toggle-track.annual{background:rgba(0,194,168,.3)}
+.save-badge{background:var(--gold);color:var(--navy);font-size:10px;font-family:'DM Mono',monospace;font-weight:700;padding:3px 8px;border-radius:10px;letter-spacing:.5px}
+
+/* ── PRICING SECTION ── */
+.pricing-section{padding:70px 40px;max-width:1200px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:60px}
+
+/* ── PACKAGE CARDS ── */
+.pkg{background:#fff;border:2px solid var(--border);border-radius:14px;padding:32px 28px;position:relative;transition:all .28s;box-shadow:var(--card-shadow)}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,35,66,.13)}
+.pkg.featured{border-color:var(--teal);box-shadow:0 0 0 4px rgba(0,194,168,.08),0 8px 32px rgba(10,35,66,.1)}
+.pkg.premium{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,166,35,.08),0 8px 32px rgba(10,35,66,.1)}
+.pkg-ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:4px 16px;border-radius:12px;font-size:10px;font-family:'DM Mono',monospace;font-weight:700;letter-spacing:1.5px}
+.pkg-ribbon.t{background:var(--teal);color:var(--navy)}
+.pkg-ribbon.g{background:var(--gold);color:var(--navy)}
+.pkg-eyebrow{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.pkg-name{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);margin-bottom:6px}
+.pkg-tagline{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:24px;min-height:42px}
+.pkg-price-wrap{margin-bottom:6px}
+.pkg-price-row{display:flex;align-items:baseline;gap:4px}
+.pkg-sgd{font-size:17px;font-weight:700;color:var(--navy);margin-top:5px}
+.pkg-amount{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;line-height:1;color:var(--navy)}
+.pkg-amount.t{color:var(--teal)}
+.pkg-amount.g{color:var(--gold)}
+.pkg-period{font-size:13px;color:var(--muted);font-family:'DM Mono',monospace;align-self:flex-end;padding-bottom:6px}
+.pkg-setup{font-size:11.5px;color:var(--muted);margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.pkg-setup strong{color:var(--navy)}
+.pkg-features{margin-bottom:24px}
+.feat{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--text);padding:5px 0;line-height:1.45}
+.feat::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;margin-top:1px}
+.feat.star::before{content:'★';color:var(--gold)}
+.feat.dim{color:var(--muted)}
+.feat.dim::before{content:'·';color:var(--border);font-size:18px;line-height:1}
+.pkg-divider{height:1px;background:var(--border);margin:14px 0}
+.pkg-cta{display:block;width:100%;padding:13px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:all .22s;text-decoration:none;text-align:center}
+.pkg-cta.startup{background:var(--off);color:var(--navy);border:2px solid var(--border)}
+.pkg-cta.startup:hover{border-color:var(--teal);background:var(--teal-lt);color:var(--navy)}
+.pkg-cta.accelerated{background:var(--teal);color:var(--navy);box-shadow:0 4px 14px rgba(0,194,168,.3)}
+.pkg-cta.accelerated:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.pkg-cta.growth{background:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(10,35,66,.2)}
+.pkg-cta.growth:hover{background:var(--navy2);transform:translateY(-1px)}
+
+/* ── PLATFORM STRIP ── */
+.platform-strip{background:var(--navy);border-radius:14px;padding:36px 40px;margin-bottom:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.plat-item{text-align:center}
+.plat-icon{font-size:28px;margin-bottom:10px}
+.plat-name{font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.plat-desc{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.5}
+.plat-replaces{font-size:10px;font-family:'DM Mono',monospace;color:var(--teal);margin-top:5px;letter-spacing:.5px}
+
+/* ── COMPARE TABLE ── */
+.compare-wrap{margin-bottom:70px}
+.compare-title{font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);text-align:center;margin-bottom:8px}
+.compare-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:32px}
+.compare-tbl{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)}
+.compare-tbl th{padding:14px 18px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px}
+.compare-tbl th:first-child{text-align:left;background:var(--off);color:var(--muted);width:36%}
+.compare-tbl th.s{background:rgba(10,35,66,.04);color:var(--navy);text-align:center}
+.compare-tbl th.a{background:rgba(0,194,168,.07);color:var(--teal);text-align:center}
+.compare-tbl th.g{background:rgba(245,166,35,.07);color:#9a6800;text-align:center}
+.compare-tbl td{padding:11px 18px;border-bottom:1px solid var(--border);font-size:13px}
+.compare-tbl td:first-child{color:var(--muted);font-weight:500}
+.compare-tbl td:not(:first-child){text-align:center;font-size:13px}
+.compare-tbl tr:last-child td{border-bottom:none}
+.compare-tbl tr:hover td{background:var(--off)}
+.compare-tbl tr:hover td:first-child{background:var(--off)}
+.ct-y{color:var(--teal);font-weight:700;font-size:15px}
+.ct-n{color:var(--border);font-size:20px;font-weight:300}
+.ct-v{color:var(--navy);font-weight:600}
+.tbl-section td{background:var(--navy)!important;color:rgba(255,255,255,.5)!important;font-size:10px!important;font-family:'DM Mono',monospace!important;text-transform:uppercase!important;letter-spacing:1.5px!important;padding:7px 18px!important;font-weight:400!important}
+
+/* ── FAQ ── */
+.faq-section{max-width:780px;margin:0 auto 70px}
+.faq-title{font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);text-align:center;margin-bottom:8px}
+.faq-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:36px}
+.faq-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .2s}
+.faq-q:hover{background:var(--off)}
+.faq-icon{font-size:18px;color:var(--teal);flex-shrink:0;transition:transform .25s;font-weight:300}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:13.5px;color:var(--muted);line-height:1.75}
+.faq-item.open .faq-a{display:block}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:var(--navy);border-radius:16px;padding:56px 48px;text-align:center;margin-bottom:60px;position:relative;overflow:hidden}
+.cta-bg1{position:absolute;right:-50px;top:-50px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,168,.1),transparent 70%)}
+.cta-bg2{position:absolute;left:-40px;bottom:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.07),transparent 70%)}
+.cta-eye{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;position:relative;z-index:2}
+.cta-h{font-family:'Playfair Display',serif;font-size:38px;color:#fff;line-height:1.1;margin-bottom:14px;position:relative;z-index:2}
+.cta-h em{color:var(--teal);font-style:normal}
+.cta-div{width:44px;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px;margin:0 auto 20px;position:relative;z-index:2}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;position:relative;z-index:2;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.cta-btn{padding:13px 28px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .22s;font-family:'Outfit',sans-serif}
+.cta-btn.primary{background:var(--teal);color:var(--navy)}
+.cta-btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.cta-btn.secondary{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2)}
+.cta-btn.secondary:hover{background:rgba(255,255,255,.07);color:#fff}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:16px;color:#fff}
+.footer-brand span{color:var(--teal)}
+.footer-links{display:flex;gap:20px}
+.footer-link{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-link:hover{color:rgba(255,255,255,.8)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.25);font-family:'DM Mono',monospace}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr}
+  .platform-strip{grid-template-columns:1fr 1fr}
+  .hero-h1{font-size:36px}
+  .cta-h{font-size:28px}
+}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .pricing-section{padding:40px 20px}
+  .hero{padding:50px 20px 60px}
+  .platform-strip{grid-template-columns:1fr;padding:24px}
+  .compare-tbl th,.compare-tbl td{padding:9px 10px;font-size:11px}
+  .cta-banner{padding:36px 24px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">LEADAR<span>.DIGITAL</span></div>
+  <div class="nav-links">
+    <a href="#packages" class="nav-link">Packages</a>
+    <a href="#compare" class="nav-link">Compare</a>
+    <a href="#platform" class="nav-link">Platform</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="/cdn-cgi/l/email-protection#b0d8d5dcdcdff0dcd5d1d4d1c29ed4d9d7d9c4d1dc" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-g1"></div>
+  <div class="hero-g2"></div>
+  <div class="hero-eye">Packages & Pricing — Singapore</div>
+  <div class="hero-h1">One platform.<br><em>Every tool you need.</em></div>
+  <div class="hero-div"></div>
+  <div class="hero-sub">Hosting, domains, CRM, marketing automation, SEO, and AI search visibility — all under one roof. No third-party fragmentation. One invoice. One team.</div>
+  <div class="hero-platform">
+    <span class="platform-pill t">🌐 Leadar Hosting</span>
+    <span class="platform-pill t">🔗 Leadar Domains</span>
+    <span class="platform-pill t">📊 Leadar CRM</span>
+    <span class="platform-pill t">✉️ Leadar Marketing Platform</span>
+    <span class="platform-pill">Included in every package</span>
+  </div>
+  <div style="padding-top:28px;position:relative;z-index:2;font-size:12px;color:rgba(255,255,255,.4);font-family:'DM Mono',monospace;letter-spacing:1px">Annual retainers available — ask us about discounts</div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section" id="packages">
+
+  <div class="pricing-grid" id="pricing-grid">
+
+    <!-- STARTUP -->
+    <div class="pkg" id="pkg-startup">
+      <div class="pkg-eyebrow">For new & early-stage businesses</div>
+      <div class="pkg-name">Startup</div>
+      <div class="pkg-tagline">Everything you need to get found online — built on Leadar's full platform stack at an accessible price.</div>
+      <div class="pkg-price-wrap">
+        <div class="pkg-price-row">
+          <span class="pkg-sgd">SGD</span>
+          <span class="pkg-amount" id="price-startup">500</span>
+          <span class="pkg-period">/month</span>
+        </div>
+      </div>
+      <div class="pkg-setup"><strong id="setup-startup">+ SGD 800</strong> one-time setup fee</div>
+      <div class="pkg-features">
+        <div class="feat">Leadar Managed WordPress Website (8 pages)</div>
+        <div class="feat">Leadar Hosting + Domain Registration</div>
+        <div class="feat">Leadar CRM — contacts & lead pipeline</div>
+        <div class="feat">Leadar Marketing Platform — email setup</div>
+        <div class="feat">SEO foundation — keyword research & on-page</div>
+        <div class="feat">2 SEO-optimised blog articles/month</div>
+        <div class="feat">Google Business Profile setup & optimisation</div>
+        <div class="feat">GA4 + Google Search Console setup</div>
+        <div class="feat">Monthly performance report</div>
+        <div class="feat">Direct access to Khurram</div>
+        <div class="pkg-divider"></div>
+        <div class="feat dim">GEO / AI Search Visibility — not included</div>
+        <div class="feat dim">Email marketing campaigns — not included</div>
+      </div>
+      <a href="Leadar_Workspace_Updated.html?tier=Startup" class="pkg-cta startup">Start with Startup →</a>
+    </div>
+
+    <!-- ACCELERATED -->
+    <div class="pkg featured" id="pkg-accelerated">
+      <div class="pkg-ribbon t">★ MOST POPULAR</div>
+      <div class="pkg-eyebrow">For growing businesses</div>
+      <div class="pkg-name">Accelerated</div>
+      <div class="pkg-tagline">Full digital marketing execution — SEO, content, email outreach & AI search visibility on your own platform.</div>
+      <div class="pkg-price-wrap">
+        <div style="padding:14px 0 6px">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Custom Pricing</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:700;line-height:1.2">Tailored to your<br>business goals</div>
+        </div>
+      </div>
+      <div class="pkg-setup">Pricing scoped after a discovery call</div>
+      <div class="pkg-features">
+        <div class="feat">Everything in Startup, plus:</div>
+        <div class="feat">Leadar CRM — full pipeline, deal & activity tracking</div>
+        <div class="feat">Leadar Marketing Platform — campaigns & sequences</div>
+        <div class="feat">5 SEO + GEO optimised articles/month</div>
+        <div class="feat star">GEO — AI search visibility (15 prompts tracked)</div>
+        <div class="feat">Email marketing campaigns (2/month)</div>
+        <div class="feat star">Apollo.io outbound sequences (3 active)</div>
+        <div class="feat">Social media management (2 platforms)</div>
+        <div class="feat">Backlink acquisition & digital PR</div>
+        <div class="feat">Monthly SEO + GEO dual report</div>
+        <div class="feat">Quarterly strategy review</div>
+        <div class="feat">24hr support SLA</div>
+      </div>
+      <a href="mailto:hello@leadar.digital?subject=Accelerated Package Enquiry" class="pkg-cta accelerated">Get in Touch →</a>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="pkg premium" id="pkg-growth">
+      <div class="pkg-ribbon g">FULL SCALE</div>
+      <div class="pkg-eyebrow">For scaling businesses</div>
+      <div class="pkg-name">Growth</div>
+      <div class="pkg-tagline">Full-stack digital dominance — ORM, PR, AI tools, predictive analytics & complete automation.</div>
+      <div class="pkg-price-wrap">
+        <div style="padding:14px 0 6px">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Custom Pricing</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:700;line-height:1.2">Scoped around your<br>scale ambitions</div>
+        </div>
+      </div>
+      <div class="pkg-setup">Pricing confirmed after discovery call</div>
+      <div class="pkg-features">
+        <div class="feat">Everything in Accelerated, plus:</div>
+        <div class="feat">8 SEO + GEO optimised articles/month</div>
+        <div class="feat star">Online Reputation Management (ORM)</div>
+        <div class="feat star">Public Relations & media outreach</div>
+        <div class="feat star">AI Marketing toolsuite & AI chat integration</div>
+        <div class="feat star">Predictive analytics & AI insights dashboard</div>
+        <div class="feat">Telemarketing & outbound call campaigns</div>
+        <div class="feat">Full marketing automation workflows</div>
+        <div class="feat">Advanced CRO — conversion rate optimisation</div>
+        <div class="feat">Apollo.io outbound sequences (5 active)</div>
+        <div class="feat">Quarterly competitor gap analysis</div>
+        <div class="feat">4hr priority support SLA</div>
+      </div>
+      <a href="mailto:hello@leadar.digital?subject=Growth Package Enquiry" class="pkg-cta growth">Get in Touch →</a>
+    </div>
+
+  </div>
+
+  <!-- PLATFORM STRIP -->
+  <div class="platform-strip" id="platform">
+    <div class="plat-item">
+      <div class="plat-icon">🌐</div>
+      <div class="plat-name">Leadar Hosting</div>
+      <div class="plat-desc">Managed WordPress hosting. Fast, secure, daily backups.</div>
+      <div class="plat-replaces">Replaces: SiteGround · GoDaddy Hosting</div>
+    </div>
+    <div class="plat-item">
+      <div class="plat-icon">🔗</div>
+      <div class="plat-name">Leadar Domains</div>
+      <div class="plat-desc">Domain registration & management. All under one roof.</div>
+      <div class="plat-replaces">Replaces: GoDaddy · Namecheap</div>
+    </div>
+    <div class="plat-item">
+      <div class="plat-icon">📊</div>
+      <div class="plat-name">Leadar CRM</div>
+      <div class="plat-desc">Contacts, pipeline, deals & activity — everything in one place.</div>
+      <div class="plat-replaces">Replaces: HubSpot · Zoho</div>
+    </div>
+    <div class="plat-item">
+      <div class="plat-icon">✉️</div>
+      <div class="plat-name">Leadar Marketing</div>
+      <div class="plat-desc">Email campaigns, automation & sequences. No extra subscriptions.</div>
+      <div class="plat-replaces">Replaces: Mailchimp · ActiveCampaign</div>
+    </div>
+  </div>
+
+  <!-- COMPARE TABLE -->
+  <div class="compare-wrap" id="compare">
+    <div class="compare-title">Full Feature Comparison</div>
+    <div class="compare-sub">Everything included — no hidden add-ons, no tool costs passed on</div>
+    <table class="compare-tbl">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="s">Startup<br><span style="font-weight:400;font-size:11px;letter-spacing:0">SGD 500/mo</span></th>
+          <th class="a">Accelerated<br><span style="font-weight:400;font-size:11px;letter-spacing:0;color:var(--teal)">Custom pricing</span></th>
+          <th class="g">Growth<br><span style="font-weight:400;font-size:11px;letter-spacing:0;color:#9a6800">Custom pricing</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tbl-section"><td colspan="4">Leadar Platform</td></tr>
+        <tr><td>Leadar Hosting</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Leadar Domain Registration</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Leadar CRM</td><td class="ct-v">Basic</td><td class="ct-v">Full</td><td class="ct-v">Full</td></tr>
+        <tr><td>Leadar Marketing Platform</td><td class="ct-v">Setup</td><td class="ct-v">Campaigns</td><td class="ct-v">Full automation</td></tr>
+
+        <tr class="tbl-section"><td colspan="4">Website & Technical</td></tr>
+        <tr><td>WordPress Website</td><td class="ct-v">8 pages</td><td class="ct-v">12 pages</td><td class="ct-v">Unlimited</td></tr>
+        <tr><td>GA4 + Google Search Console</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Technical SEO audit</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Schema markup & Core Web Vitals</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+
+        <tr class="tbl-section"><td colspan="4">SEO & Content</td></tr>
+        <tr><td>SEO-optimised articles/month</td><td class="ct-v">2</td><td class="ct-v">5</td><td class="ct-v">8</td></tr>
+        <tr><td>Keyword research & content architecture</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Backlink acquisition & digital PR</td><td class="ct-n">—</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>GEO / AI Search Visibility</td><td class="ct-n">—</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+
+        <tr class="tbl-section"><td colspan="4">Marketing & Outreach</td></tr>
+        <tr><td>Email marketing campaigns</td><td class="ct-n">—</td><td class="ct-v">2/month</td><td class="ct-v">Unlimited</td></tr>
+        <tr><td>Apollo outbound sequences</td><td class="ct-n">—</td><td class="ct-v">3 active</td><td class="ct-v">5 active</td></tr>
+        <tr><td>Social media management</td><td class="ct-n">—</td><td class="ct-v">2 platforms</td><td class="ct-v">3 platforms</td></tr>
+        <tr><td>Online Reputation Management</td><td class="ct-n">—</td><td class="ct-n">—</td><td class="ct-y">✓</td></tr>
+        <tr><td>PR & Media Outreach</td><td class="ct-n">—</td><td class="ct-n">—</td><td class="ct-y">✓</td></tr>
+        <tr><td>Telemarketing campaigns</td><td class="ct-n">—</td><td class="ct-v">Add-on</td><td class="ct-y">✓</td></tr>
+
+        <tr class="tbl-section"><td colspan="4">AI & Analytics</td></tr>
+        <tr><td>AI Marketing Toolsuite</td><td class="ct-n">—</td><td class="ct-n">—</td><td class="ct-y">✓</td></tr>
+        <tr><td>Predictive Analytics Dashboard</td><td class="ct-n">—</td><td class="ct-n">—</td><td class="ct-y">✓</td></tr>
+        <tr><td>Conversion Rate Optimisation (CRO)</td><td class="ct-n">—</td><td class="ct-n">—</td><td class="ct-y">✓</td></tr>
+
+        <tr class="tbl-section"><td colspan="4">Reporting & Support</td></tr>
+        <tr><td>Monthly performance report</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Quarterly strategy review</td><td class="ct-n">—</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Direct access to Khurram</td><td class="ct-y">✓</td><td class="ct-y">✓</td><td class="ct-y">✓</td></tr>
+        <tr><td>Support response SLA</td><td class="ct-v">48hr</td><td class="ct-v">24hr</td><td class="ct-v">4hr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <div class="faq-title">Common Questions</div>
+    <div class="faq-sub">Everything you need to know before getting started</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What does "Leadar Platform included" actually mean? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Every package includes Leadar Hosting, Leadar Domains, Leadar CRM, and Leadar Marketing Platform — these are our own tools, built and operated by us. You don't need HubSpot, Mailchimp, GoDaddy, or any other separate subscription. It's all on one invoice, managed by one team. Most agencies pass third-party tool costs on to you as extras; we don't.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is there a minimum contract length? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We run a 6-month pilot to allow enough time to see meaningful SEO results. After the pilot, all packages move to month-to-month with 30 days written notice. We earn your business every month — no 12-month lock-ins.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is GEO / AI Search Visibility? <span class="faq-icon">+</span></div>
+      <div class="faq-a">GEO (Generative Engine Optimisation) is how we build your brand's presence inside AI-generated answers — in ChatGPT, Perplexity, and Gemini. We track 15 specific prompts weekly using Otterly.ai and build content designed to earn citations in those answers. Available from the Accelerated package. Most agencies in Singapore are not offering this yet — it's a first-mover advantage.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Who owns the content, website, and accounts? <span class="faq-icon">+</span></div>
+      <div class="faq-a">You own everything — always. All content produced, your website, your Google accounts, your domain, your CRM data. If you ever leave, you take it all with you. We believe in earning your business month-to-month, not locking you in through asset ownership.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why is Startup SGD 500/month and not cheaper? <span class="faq-icon">+</span></div>
+      <div class="faq-a">SGD 500/month is already significantly below market rate for what's included — a managed WordPress website, full platform onboarding (hosting, domain, CRM, email), keyword research, on-page SEO, and 2 articles per month. Below this price point it's not possible to deliver quality work that actually moves rankings. What we're offering at SGD 500 is a genuine foundation — not a placeholder service.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I upgrade packages mid-contract? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes — you can upgrade at any point. Most clients start on Startup and move up once they've seen early results and built trust in the process. We'll scope the Accelerated or Growth package together based on what you need at that stage. Downgrades are available after the 6-month pilot on 30 days notice.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What happens after I click "Start with [Package]"? <span class="faq-icon">+</span></div>
+      <div class="faq-a">For Startup — clicking the button opens the Leadar proposal builder with the tier pre-selected. Fill in a brief about your business (about 10 minutes) and it generates a customised proposal. For Accelerated and Growth — clicking "Get in Touch" opens an email to us. We'll schedule a short discovery call to scope the right package for your goals. Onboarding begins within 48 hours of agreement.</div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-bg1"></div>
+    <div class="cta-bg2"></div>
+    <div class="cta-eye">Ready to get started</div>
+    <div class="cta-h">Choose your package.<br><em>Build your brief.</em></div>
+    <div class="cta-div"></div>
+    <div class="cta-sub">Start your Startup brief instantly — or get in touch for a discovery call on our Accelerated and Growth packages. No commitment until you sign.</div>
+    <div class="cta-buttons">
+      <a href="Leadar_Workspace_Updated.html?tier=Startup" class="cta-btn primary">Start with Startup — SGD 500/mo</a>
+      <a href="mailto:hello@leadar.digital?subject=Accelerated Package Enquiry" class="cta-btn secondary">Enquire — Accelerated</a>
+      <a href="/cdn-cgi/l/email-protection#5d35383131321d31383c393c2f7339343a34293c31" class="cta-btn secondary">Talk to us first →</a>
+    </div>
+  </div>
+
+</div><!-- /pricing-section -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">LEADAR<span>.DIGITAL</span></div>
+  <div class="footer-links">
+    <a href="mailto:hello@leadar.digital" class="footer-link">hello@leadar.digital</a>
+    <a href="tel:+6569789767" class="footer-link">+65 6978-9767</a>
+    <a href="#packages" class="footer-link">Packages</a>
+  </div>
+  <div class="footer-copy">© 2026 Leadar.Digital · Singapore</div>
+</footer>
+
+
+<script>
+// FAQ accordion
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Smooth scroll for nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
